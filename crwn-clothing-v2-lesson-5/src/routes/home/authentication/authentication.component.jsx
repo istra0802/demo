@@ -17,7 +17,7 @@ export default function Authentication() {
     <div>
 
       <h1>Sign in page </h1>
-      <SignInForm/>
+      <SignInForm />
       <SignUpForm />
     </div>
   )

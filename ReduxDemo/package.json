@@ -1,17 +1,8 @@
 {
-  "name": "reduxdemo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "immer": "^10.0.3",
+    "@redux-requests/axios": "^1.2.0",
+    "axios": "^1.6.7",
     "redux": "^5.0.1",
-    "redux-logger": "^3.0.6"
+    "redux-thunk": "^3.1.0"
   }
 }
