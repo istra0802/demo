@@ -1,8 +1,9 @@
-import React from "react";
+import React ,{useState} from "react";
 import { Container, Form, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 // import { useFirebase } from "../../utils/Firebase/FirebaseForm";
 import { useFirebase } from "../../utils/Firebase/FirebaseForm";
+// import { useState } from "react";
 
 
 
@@ -10,12 +11,18 @@ import { useFirebase } from "../../utils/Firebase/FirebaseForm";
 export default function Login() {
 
   const firebase = useFirebase();
-  console.log(firebase)
-  const handleLogin = async (e) => {
-    e.preventDefault();
-  
-  }
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+
+  const handleLogin = async(e) => {
+    e.preventDefault();
+    const result = await firebase.signupUserWithEmailAndPassword(email,password);
+    console.log(result)
+  }
+  
+  console.log(firebase)
 
   return (
     <div>
@@ -36,7 +43,8 @@ export default function Login() {
                     <Form.Control
                       type="email"
                       placeholder="Enter Email..."
-                     
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       required
                     />
                   </Form.Group>
@@ -49,7 +57,8 @@ export default function Login() {
                       <Form.Control
                         type="password"
                         placeholder="Password"
-                       
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         required
                       />
                     </div>
