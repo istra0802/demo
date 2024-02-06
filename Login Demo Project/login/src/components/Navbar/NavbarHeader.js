@@ -20,6 +20,11 @@ export default function NavbarHeader() {
                     About
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/headAndTail">
+                  Head & Tail
+                  </Link>
+                </li>
               </ul>
             </div>
             <form>

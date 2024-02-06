@@ -7,6 +7,11 @@ import { useFormik } from "formik";
 export default function Signup() {
   // const { signupUserWithEmailAndPassword } = useFirebase();
   const navigate = useNavigate();
+
+  const storedEmail =JSON.parse( localStorage.getItem("email")) || []
+  //const storedPassword = localStorage.getItem("password");
+
+  console.log(storedEmail)
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -30,13 +35,23 @@ export default function Signup() {
       return errors;
     },
 
+
+   
+
+
     onSubmit: (values) => {
       console.log("values", values);
 
       navigate("/home");
+      let obj={
+        email:values.email,
+        password:values.password,
+        islogged:true,
+      }
       // Store email and password in local storage
-      localStorage.setItem("email", values.email);
-      localStorage.setItem("password", values.password);
+      storedEmail.push(obj)
+      localStorage.setItem("email", JSON.stringify(storedEmail));
+      
       // You can redirect the user to another page after submission if needed
     },
   });

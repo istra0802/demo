@@ -15,17 +15,27 @@ export default function Login() {
       email: "",
       password: "",
     },
-    onSubmit: (values) => {
 
-      console.log("values",values);
-  
-      navigate('/home')
-        // Store email and password in local storage
-        localStorage.setItem("email", values.email);
-        localStorage.setItem("password", values.password);
-        // You can redirect the user to another page after submission if needed
-      },
+    onSubmit: (values) => {
+      // Retrieve user credentials from local storage
+      const storedEmail =JSON.parse( localStorage.getItem("email")) || []
       
+      for(let i =0; i< storedEmail.length;i++)
+      {
+
+        if (values.email === storedEmail[i].email) {
+          // If credentials match, navigate to home page
+         
+          
+          navigate("/home");
+        } else {
+          // If credentials don't match, display an error message
+          navigate("/signupp")
+        }
+      }
+      // Check if the entered credentials match the stored credentials
+    },
+
     validate: (values) => {
       const errors = {};
       // Validate email
@@ -109,10 +119,7 @@ export default function Login() {
                       ) : null}
                     </div>
                   </Form.Group>
-                  <button
-                    type="submit"
-                    className="btn btn-primary mt-4 mb-2"
-                  >
+                  <button type="submit" className="btn btn-primary mt-4 mb-2">
                     Login
                   </button>
                 </Form>

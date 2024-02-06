@@ -6,6 +6,7 @@ import Home from "./components/Navbar/Home";
 import About from "./components/Navbar/About";
 
 import { Routes, Route } from "react-router-dom";
+import HeadAndTail from "./components/Navbar/HeadAndTail";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/signupp" element={<Signupp />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/headAndTail" element={<HeadAndTail/>}/>
         
       </Routes>
     </div>
