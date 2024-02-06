@@ -1,9 +1,9 @@
-// import React from 'react'
-import {createContext, useContext } from "react"
 import { initializeApp } from "firebase/app";
-import {getAuth, createAuthUserWithEmailAndPassword} from "firebase/auth"
-const FirebaseContext = createContext(null);
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { createContext, useContext } from "react";
 
+const FirebaseContext = createContext(null);
 
 const firebaseConfig = {
   apiKey: "AIzaSyCAG1Ni_sbh_5x7VwE-C-KQ0zshWyF-lEM",
@@ -15,14 +15,43 @@ const firebaseConfig = {
   measurementId: "G-EZ5BTNCBGJ"
 };
 
+const firebaseApp = initializeApp(firebaseConfig);
+const firebaseAuth = getAuth(firebaseApp);
+const firebaseFirestore = getFirestore(firebaseApp);
+
 export const useFirebase = () => useContext(FirebaseContext);
 
-const firebaseApp = initializeApp(firebaseConfig);
-const firebaseAuth = getAuth(firebaseApp)
-
 export const FirebaseProvider = (props) => {
-    const signupUserWithEmailAndPassword = (email, password ) => createAuthUserWithEmailAndPassword(firebaseAuth, email,password)
-    return <FirebaseContext.Provider value ={{signupUserWithEmailAndPassword}}>{props.children}</FirebaseContext.Provider>
-}
+  const signupUserWithEmailAndPassword = async (email, password) => {
+    const { user } = await createUserWithEmailAndPassword(
+      firebaseAuth,
+      email,
+      password
+    );
 
+    // Add user data to Firestore
+    await addUserToFirestore(user.uid, email);
+    
+    return user;
+  };
 
+  const addUserToFirestore = async (userId, email) => {
+    try {
+      await addDoc(collection(firebaseFirestore, "users"), {
+        userId,
+        email,
+       
+       
+        // You can add more user data here
+      });
+    } catch (error) {
+      console.error("Error adding user to Firestore: ", error);
+    }
+  };
+
+  return (
+    <FirebaseContext.Provider value={{ signupUserWithEmailAndPassword }}>
+      {props.children}
+    </FirebaseContext.Provider>
+  );
+};

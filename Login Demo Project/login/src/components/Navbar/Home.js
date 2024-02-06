@@ -5,10 +5,10 @@ import { Container } from "react-bootstrap";
 export default function Home() {
   return (
     <div>
-      <Container>
-        <NavbarHeader />
+    <NavbarHeader />
+    <Container>
         <p>Home</p>
-      </Container>
+    </Container>
     </div>
   );
 }
