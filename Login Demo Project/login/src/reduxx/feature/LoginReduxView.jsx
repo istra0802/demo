@@ -1,27 +1,29 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import NavbarHeader from '../../components/Navbar/NavbarHeader';
-import { Container } from 'react-bootstrap';
+// homereduxview.jsx
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUsers } from './HomeRedux';
 
-const LoggedInUsers = () => {
-  // Get the list of users from the Redux store
-  const users = useSelector(state => state.login.users);
-  // Filter out only the users who are logged in
-  const loggedInUsers = users.find(user => user.isLogged);
+const HomeReduxView = () => {
+  const dispatch = useDispatch();
+  const users = useSelector(state => state.home.users || []); // Ensure users array is initialized
 
-
+  useEffect(() => {
+    // Retrieve users from local storage
+    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    // Dispatch action to store users in Redux state
+    dispatch(setUsers(storedUsers));
+  }, [dispatch]);
 
   return (
     <div>
-      <NavbarHeader />
-      <Container>
-        <h2>Logged In Users</h2>
-        <ul>
-          {loggedInUsers.email}
-        </ul>
-      </Container>
+      <h1>User List</h1>
+      <ul>
+        {users.map((user, index) => (
+          <li key={user.email}>{user.email}</li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default LoggedInUsers;
+export default HomeReduxView;

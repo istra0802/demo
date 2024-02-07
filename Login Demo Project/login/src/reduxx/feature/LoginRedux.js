@@ -1,4 +1,3 @@
-// redux/loginSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 export const loginSlice = createSlice({
