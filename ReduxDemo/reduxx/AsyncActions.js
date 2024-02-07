@@ -42,7 +42,7 @@ const fetchUsers = () => {
       .get('https://jsonplaceholder.typicode.com/users')
       .then(response => {
         // response.data is the users
-        const users = response.data.map(user => user.id)
+        const users = response.data.map(user => user)
         dispatch(fetchUsersSuccess(users))
       })
       .catch(error => {

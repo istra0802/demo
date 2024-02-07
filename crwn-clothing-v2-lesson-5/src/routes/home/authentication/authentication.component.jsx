@@ -1,7 +1,7 @@
 import React from 'react'
 import {signInWithGooglePopup } from '../../../utils/firebase/firebase.utils'
 import { createUserDocumentFromAuth } from '../../../utils/firebase/firebase.utils';
-import SignUpForm from '../../../components/sign-in-form/sign-up-form.component';
+import SignUpForm from '../../../components/sign-up-form/sign-up-form'
 import SignInForm from '../../../components/sign-in-form/sign-in-form.component';
 
 export default function Authentication() {
