@@ -1,26 +1,21 @@
 // homereduxview.jsx
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUsers } from './HomeRedux';
+import { setUser } from './HomeRedux';
 
 const HomeReduxView = () => {
-  const dispatch = useDispatch();
-  const users = useSelector(state => state.home.users);
+  const users = useSelector(state => state.login.users);
 
-  useEffect(() => {
-    // Retrieve users from local storage
-    const storedUsers = JSON.parse(localStorage.getItem('email')) || [];
-    // Dispatch action to store users in Redux state
-    dispatch(setUsers(storedUsers));
-  }, [dispatch]);
 
   return (
     <div>
       <h3>User List</h3>
       <ul>
-        {users.map((user) => (
-          <li key={user.email}>{user.email}</li>
-        ))}
+       {
+        users.map((ele) =>{
+          return <li>{ele.email}</li>
+        })
+       }
       </ul>
     </div>
   );

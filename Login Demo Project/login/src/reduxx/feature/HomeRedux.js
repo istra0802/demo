@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // Initial state
 const initialState = {
-  users: [],
+  user: {},
 };
 
 // Slice
@@ -11,14 +11,14 @@ export const homeSlice = createSlice({
   name: 'home',
   initialState,
   reducers: {
-    setUsers: (state, action) => {
-      state.users = action.payload;
+    setUser: (state, action) => {
+      state.user = action.payload;
     },
   },
 });
 
 // Actions
-export const { setUsers } = homeSlice.actions;
+export const { setUser } = homeSlice.actions;
 
 // Reducer
 export default homeSlice.reducer;
