@@ -1,15 +1,11 @@
-// reduxx/loginSlice.js
+// redux/loginSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-const storedEmail = JSON.parse(localStorage.getItem("email")) || [];
-const initialState = {
-    users: storedEmail.filter(user => user.isLogged), // Filter out only logged-in users
-    isLogged: storedEmail.some(user => user.isLogged),
-};
 
-console.log(initialState);
 export const loginSlice = createSlice({
   name: 'login',
-  initialState,
+  initialState: {
+    users: [],
+  },
   reducers: {
     addUser: (state, action) => {
       state.users.push(action.payload);
@@ -21,5 +17,14 @@ export const loginSlice = createSlice({
     },
   },
 });
+
+// Thunk action creator to initialize state from localStorage
+export const initializeStateFromLocalStorage = () => dispatch => {
+  const storedEmail = JSON.parse(localStorage.getItem("email")) || [];
+  storedEmail.forEach(user => {
+    dispatch(loginSlice.actions.addUser(user));
+  });
+};
+
 export const { addUser, removeUser } = loginSlice.actions;
 export default loginSlice.reducer;

@@ -7,25 +7,20 @@ export default function NavbarHeader() {
 
   const handleLogout = (values) => {
 
-    const storedEmail = JSON.parse(localStorage.getItem("email")) || [];
+    const storedEmails = JSON.parse(localStorage.getItem("email")) || [];
 
-    // if (!isLoggedIn) {
-    //   navigate("/home");
-    //   // Update isLogged status for the logged-in user
-    //   storedEmail.forEach(user => {
-    //     if (user.email === values.email) {
-    //       user.isLogged = false;
-    //     }
-        
-    //   });
-    //   // Store updated user data in local storage
-    //   localStorage.setItem("email", JSON.stringify(storedEmail));
+  // Update isLogged status for all users to false
+   const updatedEmails = storedEmails.map(user => ({
+    ...user,
+    isLogged: false
+  }));
 
-    
-     
+  // Store updated user data in local storage
+  localStorage.setItem("email", JSON.stringify(updatedEmails));
+
     navigate("/");
     
-  
+  }
 
   return (
     <div>
@@ -66,5 +61,4 @@ export default function NavbarHeader() {
       </Container>
     </div>
   );
-}
 }

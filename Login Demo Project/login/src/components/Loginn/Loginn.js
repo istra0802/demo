@@ -2,6 +2,10 @@ import React from "react";
 import { Container, Form, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
+import { initializeStateFromLocalStorage } from "../../reduxx/feature/LoginRedux";
+import Store from '../../reduxx/app/store'
+
+
 export default function Login() {
   const navigate = useNavigate();
   const formik = useFormik({
@@ -11,28 +15,23 @@ export default function Login() {
     },
     onSubmit: (values) => {
       const storedEmail = JSON.parse(localStorage.getItem("email")) || [];
-      let isLoggedIn = false;
       for (let i = 0; i < storedEmail.length; i++) {
         if (values.email === storedEmail[i].email ) {
-          isLoggedIn = true;
-          break;
+          navigate("/home");
+          storedEmail.forEach(user => {
+            if (user.email === values.email) {
+              user.isLogged = true;
+              Store.dispatch(initializeStateFromLocalStorage());
+            }
+            
+          });
+          // Store updated user data in local storage
+          localStorage.setItem("email", JSON.stringify(storedEmail));
         }
-      }
-      if (isLoggedIn) {
-        navigate("/home");
-        // Update isLogged status for the logged-in user
-        storedEmail.forEach(user => {
-          if (user.email === values.email) {
-            user.isLogged = true;
-          }
-          
-        });
-        // Store updated user data in local storage
-        localStorage.setItem("email", JSON.stringify(storedEmail));
-      } else {
+       else {
         console.log("Invalid credentials");
         navigate("/signupp");
-      }
+      }}
     },
     validate: (values) => {
       const errors = {};

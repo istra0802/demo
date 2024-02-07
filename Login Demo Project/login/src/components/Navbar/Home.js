@@ -1,6 +1,7 @@
 import React from "react";
 import NavbarHeader from "./NavbarHeader";
 import { Container,Row,Col } from "react-bootstrap";
+import HomeReduxView from "../../reduxx/feature/HomeReduxView";
 
 export default function Home() {
 
@@ -13,15 +14,19 @@ export default function Home() {
     <Container>
     <Row className="justify-content-center py-5">
           <Col>
-          <h3>Stored Emails</h3>
-          <ul>
-            {storedEmail.map((listItem) => (
-              <li key={listItem.email}>{listItem.email}</li>
-            ))}
-          </ul>
+          
+          <HomeReduxView/>
           </Col>
         </Row>
     </Container>
     </div>
   );
 }
+
+
+
+//           <ul>
+//             {storedEmail.map((listItem) => (
+//               <li key={listItem.email}>{listItem.email}</li>
+//             ))}
+//           </ul>

@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import Store from './reduxx/app/store';
 import { BrowserRouter} from "react-router-dom" 
+import { initializeStateFromLocalStorage } from './reduxx/feature/LoginRedux';
+
+Store.dispatch(initializeStateFromLocalStorage());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
