@@ -1,23 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Form, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 // import { useFirebase } from "../../utils/Firebase/FirebaseForm";
-
 export default function Signup() {
   // const { signupUserWithEmailAndPassword } = useFirebase();
   const navigate = useNavigate();
-
   const storedEmail =JSON.parse( localStorage.getItem("email")) || []
   //const storedPassword = localStorage.getItem("password");
-
-  console.log(storedEmail)
+ 
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-
     validate: (values) => {
       const errors = {};
       if (!values.email) {
@@ -34,14 +30,8 @@ export default function Signup() {
       }
       return errors;
     },
-
-
-   
-
-
     onSubmit: (values) => {
       console.log("values", values);
-
       navigate("/home");
       let obj={
         email:values.email,
@@ -51,7 +41,6 @@ export default function Signup() {
       // Store email and password in local storage
       storedEmail.push(obj)
       localStorage.setItem("email", JSON.stringify(storedEmail));
-      
       // You can redirect the user to another page after submission if needed
     },
   });
@@ -61,7 +50,9 @@ export default function Signup() {
   //   localStorage.setItem("email", values.email);
   //     localStorage.setItem("password", values.password);
   // }
-
+  useEffect(()=>{
+   
+  },[])
   return (
     <div>
       <Container>

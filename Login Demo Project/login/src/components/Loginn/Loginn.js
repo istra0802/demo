@@ -1,52 +1,46 @@
 import React from "react";
 import { Container, Form, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-// import { useFirebase } from "../../utils/Firebase/FirebaseForm";
-// import { useFirebase } from "../../utils/Firebase/FirebaseForm";
-// import { useState } from "react";
 import { useFormik } from "formik";
-// import Home from "../Navbar/Home";
-
 export default function Login() {
   const navigate = useNavigate();
-
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-
     onSubmit: (values) => {
-      // Retrieve user credentials from local storage
-      const storedEmail =JSON.parse( localStorage.getItem("email")) || []
-      
-      for(let i =0; i< storedEmail.length;i++)
-      {
-
-        if (values.email === storedEmail[i].email) {
-          // If credentials match, navigate to home page
-         
-          
-          navigate("/home");
-        } else {
-          // If credentials don't match, display an error message
-          navigate("/signupp")
+      const storedEmail = JSON.parse(localStorage.getItem("email")) || [];
+      let isLoggedIn = false;
+      for (let i = 0; i < storedEmail.length; i++) {
+        if (values.email === storedEmail[i].email ) {
+          isLoggedIn = true;
+          break;
         }
       }
-      // Check if the entered credentials match the stored credentials
+      if (isLoggedIn) {
+        navigate("/home");
+        // Update isLogged status for the logged-in user
+        storedEmail.forEach(user => {
+          if (user.email === values.email) {
+            user.isLogged = true;
+          }
+          
+        });
+        // Store updated user data in local storage
+        localStorage.setItem("email", JSON.stringify(storedEmail));
+      } else {
+        console.log("Invalid credentials");
+        navigate("/signupp");
+      }
     },
-
     validate: (values) => {
       const errors = {};
-      // Validate email
       if (!values.email) {
         errors.email = "Email is Required";
-      } else if (
-        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-      ) {
+      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
         errors.email = "Invalid email address";
       }
-      // Validate password
       if (!values.password) {
         errors.password = "Password is Required";
       } else if (values.password.length < 6) {
@@ -55,20 +49,6 @@ export default function Login() {
       return errors;
     },
   });
-
-  // const firebase = useFirebase();
-
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-
-  // const handleLogin = async(e) => {
-  //   e.preventDefault();
-  //   const result = await firebase.signupUserWithEmailAndPassword(email,password);
-  //   console.log(result)
-  // }
-
-  // console.log(firebase)
-
   return (
     <div>
       <Container>
@@ -97,7 +77,6 @@ export default function Login() {
                       <div className="text-danger">{formik.errors.email}</div>
                     ) : null}
                   </Form.Group>
-
                   <Form.Group
                     className="custom-fr-group"
                     controlId="formBasicPassword"

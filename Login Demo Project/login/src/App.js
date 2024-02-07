@@ -7,6 +7,7 @@ import About from "./components/Navbar/About";
 
 import { Routes, Route } from "react-router-dom";
 import HeadAndTail from "./components/Navbar/HeadAndTail";
+import LoggedInUsers from "./reduxx/feature/LoginReduxView";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/headAndTail" element={<HeadAndTail/>}/>
+        <Route path="/redux" element={<LoggedInUsers/>}/>
         
       </Routes>
     </div>

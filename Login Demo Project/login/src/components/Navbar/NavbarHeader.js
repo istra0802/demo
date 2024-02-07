@@ -1,8 +1,32 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 
 export default function NavbarHeader() {
+  const navigate = useNavigate();
+
+  const handleLogout = (values) => {
+
+    const storedEmail = JSON.parse(localStorage.getItem("email")) || [];
+
+    // if (!isLoggedIn) {
+    //   navigate("/home");
+    //   // Update isLogged status for the logged-in user
+    //   storedEmail.forEach(user => {
+    //     if (user.email === values.email) {
+    //       user.isLogged = false;
+    //     }
+        
+    //   });
+    //   // Store updated user data in local storage
+    //   localStorage.setItem("email", JSON.stringify(storedEmail));
+
+    
+     
+    navigate("/");
+    
+  
+
   return (
     <div>
       <Container>
@@ -25,16 +49,22 @@ export default function NavbarHeader() {
                   Head & Tail
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/redux">
+                  Redux
+                  </Link>
+                </li>
               </ul>
             </div>
             <form>
-              <Link to= '/' className="btn btn-danger my-2 my-sm-0" type="submit">
+              <button  onClick={handleLogout} className="btn btn-danger my-2 my-sm-0" type="submit">
                 Logout
-              </Link>
+              </button>
             </form>
           </div>
         </nav>
       </Container>
     </div>
   );
+}
 }

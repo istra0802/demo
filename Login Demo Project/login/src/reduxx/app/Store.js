@@ -1,10 +1,10 @@
-import { configureStore} from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
+import loginReducer from '../feature/LoginRedux';
 
-const store = configureStore({
-    reducer: {
-      
-    }
-    // middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger)
-  })
-  
-   export default store
+const Store = configureStore({
+  reducer: {
+    login: loginReducer,
+  },
+});
+
+export default Store;
