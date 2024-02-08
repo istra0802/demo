@@ -1,0 +1,21 @@
+
+
+.face-text {
+    // Your custom styles for the "Face Swap" text
+    
+    font-size: 18px;
+    font-family: "Monotype Old Style Std Bold";
+    font-weight: bold;
+    background: linear-gradient(to right, rgb(68, 68, 201), 
+                 #cf23cf, rgb(106, 4, 106)); 
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text;
+  }
+
+  .text {
+    color: white;
+    font-size: 18px;
+    font-family: "Monotype Old Style Std Bold";
+    font-weight: 300;
+  }
+ 
