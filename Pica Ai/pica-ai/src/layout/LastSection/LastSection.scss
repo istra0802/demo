@@ -1,0 +1,41 @@
+.wrapper {
+    padding: 100px 0px 160px;
+    background: rgb(44, 44, 44);
+    color: rgb(255, 255, 255);
+    font-family:  'Helvetica Neue';
+    
+
+    .content {
+        margin: 0px auto;
+    
+        @media (max-width: 1440px) {
+          max-width: 1080px;
+        }
+
+        .section-text {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .section-button {
+            display: flex;
+            width: 370px;
+            margin: 55px auto 0px;
+            padding: 20px 0px;
+            -webkit-box-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            border-radius: 16px;
+            background: linear-gradient(270deg, rgb(85, 72, 248) 0%, rgb(112, 103, 253) 100%);
+            cursor: pointer;
+        }
+      }
+}
+
+a {
+    color: inherit;
+    text-decoration: none ;
+}

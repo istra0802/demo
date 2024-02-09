@@ -1,0 +1,54 @@
+
+.cover {
+  position: relative;
+
+  .face-swap {
+    background-color: white;
+    padding-right: 460px;
+    text-align: center;
+    color: black;
+  }
+
+  .face-swap-header {
+    position: relative;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    margin: auto;
+    text-align: center;
+    z-index: 8;
+    
+    .face-swap-title {
+        padding-top: 20px;
+        margin-bottom: 16px;
+        color: black;
+        font-size: 48px;
+        font-weight: 700;
+        font-family: '';
+        line-height: 134.5%;
+    }
+
+    .face-swap-subheader {
+      color: rgb(102, 102, 102);
+      font-family: "";
+      font-size : 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+    }
+  }
+
+  .face-swap-body {
+      // height: 682px;
+      overflow: auto;
+      max-width: var(--max-width);
+      margin: 0px auto;
+      position: relative;
+    
+
+    @media (max-width: 1440px) {
+      height: 513px;
+      max-width: 700px;
+    }
+  }
+}

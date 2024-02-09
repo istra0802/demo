@@ -1,0 +1,123 @@
+  .face-text {
+    font-size: 18px;
+    font-family: "Monotype Old Style Std Bold";
+    font-weight: bold;
+    background: linear-gradient(-45deg, rgb(72,79,248), rgb(228,79,252), rgb(48,181,255)); 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text;
+  }
+
+  .text {
+    font-size: 16px;
+    font-family: "Monotype Old Style Std Bold";
+    font-weight: 300;
+  }
+   
+  .nav-link, .dropdown-item {
+    color: white;
+    margin : 0px 40px 0px 0px; // Set the color of the navigation links to white
+  }
+  
+  .gradient-badge {
+    font-size: 16px;
+    font-family:  'Helvetica Neue';
+    display: inline-block;
+    padding: 0px 12px;
+    margin-right: 40px;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 6px;
+    background-image: linear-gradient(86.3deg, rgb(182,87,170) 0%, rgb(105,93,212)104.98%);
+    color: white;
+
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 70px;
+    height: 24px;
+    margin-right: 10px; 
+    margin-bottom: 8px;// Add some margin between the logo and the toggle button
+  }
+
+  .logo-canvas {
+    width: 70px;
+    height: 24px;
+    margin-right: 10px; 
+    margin-bottom: 8px;// Add some margin between the logo and the toggle button
+  }
+  
+  @media (max-width: 991.98px) {
+    .logo {
+      margin-right: 0; // Remove margin for smaller screens
+    }
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    align-items: end;
+  }
+
+  .nav-button {
+    margin-bottom: 5px;
+    margin-right: 40px;
+    font-family: 'Helvetica Neue';
+    font-size: 14px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
+    min-width: 76px;
+    padding: 0px 6px;
+    height: 32px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    font-size: 14px;
+    color: rgb(255,255,255);
+    cursor: pointer;
+  }
+
+  .dropdown {
+    margin-right: 28px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-name {
+    margin-right: 0px;
+  }
+
+  // Header.scss
+
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #343a40;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.bold {
+  transition: transform 0.3s ease; // Add transition property for smooth transformation
+}
+
+.dropdown:hover .bold {
+  transform: rotate(180deg); // Rotate the icon 180 degrees when hovered
+}
+
+.dropdown button {
+  outline: none; /* This removes the outline */
+}
