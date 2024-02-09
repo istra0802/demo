@@ -1,0 +1,80 @@
+// Define your custom color variable
+$custom-color: white;
+
+.wrapper-faq {
+    padding: 70px 0;
+    background: #f5f5f5;
+
+    .swap-faq-content {
+        max-width: var(--max-width);
+        margin: 0 auto;
+    }
+
+    .swap-faq-title {
+        text-align: center;
+        font-family: " ";
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 60px;
+        color: rgb(0, 0, 0);
+    }
+
+    .swap-faq-box {
+        clear: both;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 32px 40px;
+        max-width: 1400px;
+        margin: 40px auto 0px;
+        overflow-x: auto;
+    }
+    
+    .accordion {
+        border: 1px solid black;
+        border-radius: 10px;
+        
+
+        .accordion-header {
+            border-radius: 8px;
+            padding: 14px;
+            position: relative;
+            background-color: $custom-color;
+            color: black;
+            
+            line-height: 1.6;
+            font-family: ' ';
+            hyphens: auto;
+          
+        }
+
+        .accordion-body {
+            z-index: 1;
+            margin-top: 12px;
+            
+            line-height: 1.5;
+            font-family: '';
+            color: rgba(0, 0, 0, 0.8);
+            hyphens: auto;
+            white-space: break-space;
+        }
+
+        .accordion-button {
+            background-color: $custom-color;
+            border-color: $custom-color;
+            color: black;
+            &:hover {
+                background-color: $custom-color;
+            }
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+            &.collapsed {
+                background-color: $custom-color;
+            }
+            .accordion-collapse.show {
+                background-color: $custom-color;
+            }
+        }
+    }
+}

@@ -52,10 +52,10 @@ export default function Header() {
               <div className="nav-container" >
                 <Navbar.Collapse >
                   <Nav className="ms-auto text">
-                    <Nav.Link className="face-text" href="/">
+                    <Nav.Link className="face-text hot" href="/">
                       Face Swap
                     </Nav.Link>
-                    <Nav.Link href="/">AI Headshot</Nav.Link>
+                    <Nav.Link href="/" className="position-relative"><span className="badge rounded-pill bg-danger position-absolute top-1 start-100 translate-middle">new</span>AI Headshot</Nav.Link>
                     <Nav.Link href="/" className="dropdown-name">
                       AI Tools
                     </Nav.Link>

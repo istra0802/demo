@@ -1,12 +1,37 @@
   .face-text {
+    position: relative;
     font-size: 18px;
     font-family: "Monotype Old Style Std Bold";
     font-weight: bold;
     background: linear-gradient(-45deg, rgb(72,79,248), rgb(228,79,252), rgb(48,181,255)); 
     -webkit-text-fill-color: transparent; 
     background-clip: text;
+   
   }
 
+  .face-text::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: -18px;
+    width: 20px;
+    height: 20px;
+    background: url(https://static.pica-ai.com/_next/static/media/star-1.c2eda227.png) center center / 100% no-repeat;
+    animation: 2s linear 0s infinite normal none running star1;
+  }
+
+  .face-text::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: -18px;
+    width: 20px;
+    height: 10px;
+    background: url(https://static.pica-ai.com/_next/static/media/star-2.44d8486e.png) center center / 100% no-repeat;
+    animation: 2s linear 0s infinite normal none running star2;
+  }
   .text {
     font-size: 16px;
     font-family: "Monotype Old Style Std Bold";

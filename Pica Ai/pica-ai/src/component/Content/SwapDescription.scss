@@ -1,0 +1,59 @@
+.wrapper-describe {
+    background: rgb(255, 255, 255);
+
+    .describe-innertab {
+        max-width: var(--max-width);
+        margin: 0px auto;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        padding: 102px 0px;
+
+        .describe-left {
+            width: 548px;
+            display: flex;
+            flex-direction: column;
+
+            .button {
+                width: auto;
+                color: rgb(255, 255, 255);
+                margin: auto auto auto 0px;
+                display: flex;
+                padding: 20px;
+                -webkit-box-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                align-items: center;
+                border-radius: 16px;
+                background: linear-gradient(270deg, rgb(85, 72, 248) 0%, rgb(112, 103, 253) 100%);
+                cursor: pointer;
+            }
+        }
+
+        .describe-title {
+            text-align: center;
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 60px;
+            color: rgb(0, 0, 0);
+        }
+
+        .describe-content {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 30px;
+            color: rgb(146, 146, 146);
+            text-align: center;
+        }
+
+        .describe-right {
+
+            .describe-image {
+                width: 400px;
+                height: 400px;
+            }
+        }
+    }
+
+
+}

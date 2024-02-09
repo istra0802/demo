@@ -14,19 +14,19 @@ export default function SwapContent() {
         </div>
         <div className="face-swap-body">
           <div className="face-swap-tab">
-          <ul className="nav">
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href='/'>Active</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href='/'>Link</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href='/'>Link</a>
-          </li>
-          
-        </ul>
-        
+            <ul className="nav">
+              <li className="nav-item">
+                <a className="nav-link active-tab" href='/'>Face Swap</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href='/'>Multiple face</a>
+              </li>
+              <li className="nav-item ">
+                <a className="nav-link gradient" href='/'>Video Fave Swap</a>
+              </li>
+
+            </ul>
+
           </div>
         </div>
       </div>
