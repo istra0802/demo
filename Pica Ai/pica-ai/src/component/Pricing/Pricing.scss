@@ -1,0 +1,89 @@
+.price-wrapper {
+  min-height: calc(100vh -var(--header-height));
+  background: rgb(15, 15, 15);
+  padding-top: 40px;
+  font-family: " ";
+  padding-bottom: 25px;
+  color: white;
+
+  .price-list {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    gap: 40px;
+    margin: 22px auto;
+
+    .price-list-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 288px;
+      height: 288px;
+      padding: 24px 32px;
+      border-radius: 16px;
+      background-color: rgb(245, 245, 245);
+      cursor: pointer;
+      transition: all 0.2s ease-in-out 0s;
+
+      .price-item-title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+        color: rgb(112, 103, 253);
+      }
+
+      .price-item-info {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        padding: 10px 0px;
+
+        .price-item-amount {
+            position: relative;
+            color: rgb(4, 12, 28);
+            font-size: 42px;
+            line-height: 1;
+        }
+
+        .price-item-period {
+            color: rgb(4, 12, 28);
+            opacity: 0.5;
+            font-size: 20px;
+            line-height: 24px;
+        }
+      }
+    }
+
+    .price-plan-info {
+        color: rgb(4, 12, 28);
+        opacity: 0.5;
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .price-plan-button {
+        position: absolute;
+        left: 32px;
+        bottom: 24px;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        width: calc(100% - 64px);
+        height: 54px;
+        border-radius: 16px;
+        font-size: 16px;
+        color: rgb(255, 255, 255);
+        background: rgb(44, 44, 44);
+    }
+
+    .price-plan-button-active {
+        background: linear-gradient(270deg, rgb(85, 72, 248) 0%, rgb(112, 103, 253) 100%), rgb(44, 44, 44);
+        color: rgb(255, 255, 255);
+    }
+  }
+}
