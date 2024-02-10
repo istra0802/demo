@@ -98,7 +98,7 @@ export default function Header() {
                         </li>
                       </ul>
                     </div>
-                    <Nav.Link href="/">Pricing</Nav.Link>
+                    <Nav.Link href="/pricing">Pricing</Nav.Link>
                     <Nav.Link href="/">Join the Discord</Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
