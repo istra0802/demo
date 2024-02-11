@@ -6,6 +6,15 @@
   padding-bottom: 25px;
   color: white;
 
+  .price-title {
+    margin: 0px;
+    font-weight : 700;
+    font-size: 48px;
+    line-height: 60px;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
   .price-list {
     display: flex;
     -webkit-box-align: center;
@@ -85,5 +94,111 @@
         background: linear-gradient(270deg, rgb(85, 72, 248) 0%, rgb(112, 103, 253) 100%), rgb(44, 44, 44);
         color: rgb(255, 255, 255);
     }
+  }
+
+  .price-Feature {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 24px auto 44px;
+    padding: 24px;
+    font-size: 16px;
+    line-height: 22px;
+    color: rgb(255, 255, 255);
+
+    .price-feature-item {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      gap: 10px;
+
+      .item-color {
+        color: rgb(233, 103, 48);
+        font-weight: bold;
+      }
+
+      .iconfont {
+        font-family: "iconfont" ;
+        font-size: 16px;
+        font-style: normal;
+        z-index: 3;
+        -webkit-font-smoothing: antialiased;
+        
+      }
+    }
+  }
+
+  .faq-heading {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+    margin-top: 45px;
+    margin:0px;
+  }
+
+  .price-faq-wrapper {
+    max-width: 1400px;
+    margin: 45px auto;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // Display two items per row
+    gap: 20px; // Add some gap between items
+  
+    .price-faq-container {
+      border: 1px solid rgb(75, 85, 103);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 20px;
+  
+      .price-faq-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+  
+        .question {
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 30px;
+          flex-grow: 1;
+  
+          .bold {
+            transition: transform 0.3s ease; // Add transition property for smooth transformation
+          }
+  
+          &:hover .bold {
+            transform: rotate(180deg); // Rotate the icon 180 degrees when hovered
+          }
+        }
+      }
+  
+      .answer {
+        margin-top: 10px;
+  
+        // Show answer when container is open
+        &.open {
+          display: block;
+        }
+      }
+    }
+  }
+  
+  
+  
+  .answer {
+    margin-top: 10px;
+
+    // Show answer when container is open
+    &.open {
+      display: block;
+    }
+
+  }
+
+  :nth-child(2n) {
+    margin-right: 0px;
   }
 }

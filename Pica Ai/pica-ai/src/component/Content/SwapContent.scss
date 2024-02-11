@@ -52,7 +52,7 @@
     .face-swap-tab {
       @media (max-width: 720px) {
         margin-top: 25px;
-        margin-bottom: 15px
+        margin-bottom: 15px;
       }
 
       display: flex;
@@ -78,14 +78,27 @@
           margin-right: 20px;
 
           .gradient {
-            background-image: linear-gradient(-45deg, rgb(72, 79, 248), rgb(228, 79, 252), rgb(48, 181, 255));
+            background-image: linear-gradient(
+              -45deg,
+              rgb(72, 79, 248),
+              rgb(228, 79, 252),
+              rgb(48, 181, 255)
+            );
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            position: relative
+            position: relative;
           }
         }
 
         .nav-link {
+          white-space: nowrap;
+          cursor: pointer;
+          padding: 8px 16px;
+          font-size: 16px;
+          line-height: 24px;
+          border-radius: 20px;
+          margin-bottom: 13px;
+          margin-right: 112px;
           color: black;
           text-decoration: none;
           font-size: 16px;
@@ -104,14 +117,239 @@
           }
 
           :last-of-type {
-            margin-right:0px;
+            margin-right: 0px;
           }
           &:hover {
             background-color: transparent; // Set background color to transparent on hover
             color: black;
           }
-
         }
+      }
+    }
+
+    .swap-action {
+      margin: 45px 0px 58px;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+
+      .swap-transform {
+        background: rgb(249, 248, 248);
+        margin-right: 43px;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        border-radius: 20px;
+
+        @media (max-width: 1440px) {
+          width: 250px;
+          height: 250px;
+        }
+
+        .swap-custom {
+          display: flex;
+          flex-direction: column;
+
+          .img {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: url(https://static.pica-ai.com/_next/static/media/icon-upload.368442cb.png)
+              center center / cover no-repeat;
+            cursor: pointer;
+          }
+
+          .img-input {
+            cursor: pointer;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            opacity: 0;
+          }
+
+          .input {
+            font-family: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        .swap-original {
+          display: flex;
+          flex-direction: column;
+
+          .swap-original-img {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            background: url(https://img.mobiuspace.com/image/aigc/04ccdae….webp)
+              0% 0% / cover no-repeat;
+          }
+        }
+      }
+
+      .swap-img-original {
+        overflow: hidden;
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border-radius: 20px;
+
+        @media (max-width: 1440px) {
+          width: 250px;
+          height: 250px;
+        }
+
+        .swap-img-container {
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+          background: url(https://img.mobiuspace.com/image/aigc/04ccdae….webp)
+            0% 0% / cover no-repeat;
+        }
+      }
+    }
+
+    .swap-btn {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      width: 629px;
+      height: 78px;
+      margin: 0px auto;
+      border-radius: 12px;
+      font-size: 18px;
+      color: rgb(255, 255, 255);
+      background: rgb(216, 216, 216);
+      cursor: pointer;
+
+      .span {
+        z-index: 2;
+        color: rgb(168, 168, 168);
+      }
+
+      ::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(
+          106.28deg,
+          rgb(133, 96, 250) 0%,
+          rgb(68, 211, 239) 90.81%
+        );
+        animation: auto ease 0s 1 normal backwards running none;
+      }
+    }
+  }
+
+  .swap-options {
+    position: absolute;
+    top: 0px;
+    right: 40px;
+    z-index: 10;
+    width: 460px;
+    height: calc(-157px + 100vh);
+    padding: 30px;
+    background: rgb(247, 250, 252);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+
+    .swap-options-title {
+      font-family: "Helvetica Neue";
+      font-size: 14px;
+      color: rgb(0, 0, 0);
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    .swap-selections {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-bottom: 20px;
+
+      .swap-border {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        background: url(https://static.pica-ai.com/_next/static/media/icon-upload.368442cb.png)
+          center center / cover no-repeat;
+        cursor: pointer;
+
+        .swap-options-input-img {
+          cursor: pointer;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          opacity: 0;
+        }
+        .input {
+          font-family: inherit;
+          font-size: 100%;
+          font-weight: inherit;
+          line-height: inherit;
+          color: inherit;
+          margin: 0;
+          padding: 0;
+        }
+
+        .first-img {
+          width: 120px;
+          height: 120px;
+          flex-shrink: 0;
+          cursor: pointer;
+          position: relative;
+          border-radius: 8px;
+          background: url(https://img.mobiuspace.com/image/aigc/04ccdae….webp)
+            0% 0% / cover no-repeat;
+        }
+        .active {
+          border: 3px solid rgb(186, 132, 255);
+        }
+
+        .second-img {
+          width: 120px;
+          height: 120px;
+          flex-shrink: 0;
+          cursor: pointer;
+          position: relative;
+          border-radius: 8px;
+          background: url(https://img.mobiuspace.com/image/aigc/31bd086….webp)
+            0% 0% / cover no-repeat;
+        }
+      }
+    }
+
+    @media (max-width: 1440px) {
+      height: calc(-120px + 100vh);
+    }
+
+    .options {
+      height: 100% !important;
+      @media (max-width: 1440px) {
+        height: 100% !important;
       }
     }
   }
