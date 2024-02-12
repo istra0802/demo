@@ -1,8 +1,8 @@
 import React from "react";
-import arrowImg from "../../images/arrowImg.png";
-import selectImg from '../../images/selectImg.png';
-import generateImg from '../../images/generateImg.png';
-import uploadImg from "../../images/uploadImg.png";
+import arrowImg from "../../../images/arrowImg.png";
+import selectImg from '../../../images/selectImg.png';
+import generateImg from '../../../images/generateImg.png';
+import uploadImg from "../../../images/uploadImg.png";
 import "./SwapProcessDescription.scss";
 
 export default function SwapProcessDescription() {
@@ -15,23 +15,14 @@ export default function SwapProcessDescription() {
         <div className="process-container">
           <div className="process-container-item">
             <img
+             className="process-image"
               src={uploadImg}
               alt=" "
-              style={{
-                width: "290px",
-                height: "290px",
-                maxWidth: "100%",
-                display: "block",
-                verticalAlign: "middle",
-              }}
+              
             ></img>
             <div
               className="process-item-text"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                maxWidth: "290px",
-              }}
+             
             >
               <div className="process-item-title">
                 <span className="process-ellipse"></span>
@@ -55,7 +46,7 @@ export default function SwapProcessDescription() {
             className="process-arrow"
             style={{
               maxWidth: "100%",
-              display: "block",
+            
               verticalAlign: "middle",
             }}
           ></img>
@@ -64,21 +55,11 @@ export default function SwapProcessDescription() {
             <img
               src={selectImg}
               alt=" "
-              style={{
-                width: "290px",
-                height: "290px",
-                maxWidth: "100%",
-                display: "block",
-                verticalAlign: "middle",
-              }}
+              className="process-image"
             ></img>
             <div
               className="process-item-text"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                maxWidth: "290px",
-              }}
+             
             >
               <div className="process-item-title">
                 <span className="process-ellipse"></span>
@@ -102,7 +83,7 @@ export default function SwapProcessDescription() {
             className="process-arrow"
             style={{
               maxWidth: "100%",
-              display: "block",
+          
               verticalAlign: "middle",
             }}
           ></img>
@@ -111,21 +92,11 @@ export default function SwapProcessDescription() {
             <img
               src={generateImg}
               alt=" "
-              style={{
-                width: "290px",
-                height: "290px",
-                maxWidth: "100%",
-                display: "block",
-                verticalAlign: "middle",
-              }}
+              className="process-image"
             ></img>
             <div
               className="process-item-text"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                maxWidth: "290px",
-              }}
+             
             >
               <div className="process-item-title">
                 <span className="process-ellipse"></span>
@@ -133,10 +104,7 @@ export default function SwapProcessDescription() {
               </div>
               <div
                 className="process-item-description"
-                style={{
-                  textAlign: "center",
-                  color: "rgb(47,47,47), opacity:0.7",
-                }}
+               
               >
               Click "Swap Face" to auto swap face into photo. Preview result. Click "Download" to save final swapped photo when satisfied.
               </div>

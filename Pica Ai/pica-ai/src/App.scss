@@ -10,10 +10,17 @@ a {
   text-decoration: none;
 }
 
-body {
-  background: $font-color;
-}
+// body {
+//   background: $font-color;
+// }
 .container {
   margin: 0px;
+}
+
+@media (max-width: 600px) {
+  
+  .app{
+    width: fit-content;
+  }
 }
 

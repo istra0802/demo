@@ -1,25 +1,28 @@
 import React, { useState } from "react";
 import logo from "../../images/logo.webp";
 import "./Header.scss";
-import {signInWithGooglePopup,createUserDocumentFromAuth } from '../../utils/firebase'
+import {
+  signInWithGooglePopup,
+  createUserDocumentFromAuth,
+} from "../../utils/firebase";
 import { Container, Button, Offcanvas } from "react-bootstrap";
 import { Navbar, Nav } from "react-bootstrap";
 
 export default function Header() {
-
-  const signInWithGoogle= async () =>
-  {
-    const {user} = await signInWithGooglePopup();
-    await  createUserDocumentFromAuth(user)
-  }
+  const signInWithGoogle = async (event) => {
+    event.preventDefault();
+    const { user } = await signInWithGooglePopup();
+    await createUserDocumentFromAuth(user);
+  };
 
   const [showOffcanvas, setShowOffcanvas] = useState(false);
 
-  const handleOffcanvasToggle = () => setShowOffcanvas((prevShowOffcanvas) => !prevShowOffcanvas);
+  const handleOffcanvasToggle = () =>
+    setShowOffcanvas((prevShowOffcanvas) => !prevShowOffcanvas);
   return (
     <div>
       <Navbar expand="lg" bg="black" variant="dark">
-        <Container fluid >
+        <Container fluid>
           <div className="logo-container">
             <Navbar.Toggle
               aria-controls="navbarScroll"
@@ -39,8 +42,14 @@ export default function Header() {
               />
             </Navbar.Brand>
           </div>
-          <div className={`nav-container ${showOffcanvas ? "offcanvas-open" : ""}`}>
-            <Navbar.Offcanvas placement="start" style={{ backgroundColor: "black" }} className='ps-4'>
+          <div
+            className={`nav-container ${showOffcanvas ? "offcanvas-open" : ""}`}
+          >
+            <Navbar.Offcanvas
+              placement="start"
+              style={{ backgroundColor: "black" }}
+              className="ps-4"
+            >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title className="logo-offcanvas">
                   <img
@@ -57,13 +66,18 @@ export default function Header() {
                 </Offcanvas.Title>
               </Offcanvas.Header>
 
-              <div className="nav-container" >
-                <Navbar.Collapse >
+              <div className="nav-container">
+                <Navbar.Collapse>
                   <Nav className="ms-auto text">
                     <Nav.Link className="face-text hot" href="/">
                       Face Swap
                     </Nav.Link>
-                    <Nav.Link href="/" className="position-relative"><span className="badge rounded-pill bg-danger position-absolute top-1 start-100 translate-middle">new</span>AI Headshot</Nav.Link>
+                    <Nav.Link href="/" className="position-relative">
+                      <span className="badge rounded-pill bg-danger position-absolute top-1 start-100 translate-middle">
+                        new
+                      </span>
+                      AI Headshot
+                    </Nav.Link>
                     <Nav.Link href="/" className="dropdown-name">
                       AI Tools
                     </Nav.Link>
@@ -88,7 +102,10 @@ export default function Header() {
                           />
                         </svg>
                       </button>
-                      <ul className="dropdown-menu" style={{ backgroundColor: "black" }}>
+                      <ul
+                        className="dropdown-menu"
+                        style={{ backgroundColor: "black" }}
+                      >
                         <li>
                           <a className="dropdown-item" href="/">
                             Action
@@ -111,38 +128,68 @@ export default function Header() {
                   </Nav>
                 </Navbar.Collapse>
               </div>
-
             </Navbar.Offcanvas>
             <Navbar.Text className="gradient-badge ms-auto">
               Credits:7
             </Navbar.Text>
-            <Button type="button" variant="outline-secondary" data-toggle='modal' data-target="#SignInModal" className="nav-button">
+            <Button
+              type="button"
+              variant="outline-secondary"
+              data-toggle="modal"
+              data-target="#SignInModal"
+              className="nav-button"
+            >
               Sign In
             </Button>
 
+            <div
+              className="modal fade mt-5 my-4 pt-5"
+              id="SignInModal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLongTitle"
+              aria-hidden="true"
+            >
+              <div className="  signin-wrapper modal-body modal-content modal-dialog">
+                <button type="button" class="close ms-auto"></button>
+                <div className="signin-title mb-3" style={{ fontSize: "16px" }}>
+                  {" "}
+                  Login to get subscribe
+                </div>
+                <div className="signin-login">
+                  <img
+                    className=" signin-img"
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      marginRight: "16px",
+                    }}
+                    src="https://static.pica-ai.com/_next/static/media/google_logo.58bbd3c5.png"
+                    alt="google logo"
+                  />
+                  <button
+                  href="#"
+                  onClick={(event) => signInWithGoogle(event)}
+                  className="text"
+                  style={{ backgroundColor: "transparent", color: "white", borderColor: "transparent" }}
+                >
+                    Continue with Google
+                  </button>
+                </div>
 
-
-            <div className="centered modal fade mt-5 my-4 pt-5" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                    <div className="  signin-wrapper modal-body modal-dialog">
-                    <button type="button" class="close ms-auto" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                      <div className="signin-title mb-3" style={{fontSize:"16px"}}> Login to get subscribe</div>
-
-
-                      <div className="signin-login">
-                        <img  className=" signin-img" style ={{ width:"24px",height:"24px", marginRight:"16px"}}src="https://static.pica-ai.com/_next/static/media/google_logo.58bbd3c5.png" alt="google logo" />
-                        <button style={{backgroundColor:"transparent", color:"white", borderColor:"transparent"}} onClick = {signInWithGoogle} class="text">Continue with Google</button>
-                      </div>
-
-                      <div class="signin-login">
-                        <img  style ={{ width:"24px",height:"24px", marginRight:"16px"}}src="https://static.pica-ai.com/_next/static/media/facebook_logo.de9b2562.png" alt="facebook logo" />
-                        <div class="text">Continue with Facebook</div>
-                      </div>
-                    </div>
-                 
-                  
-              
+                <div class="signin-login">
+                  <img
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      marginRight: "16px",
+                    }}
+                    src="https://static.pica-ai.com/_next/static/media/facebook_logo.de9b2562.png"
+                    alt="facebook logo"
+                  />
+                  <div className="text">Continue with Facebook</div>
+                </div>
+              </div>
             </div>
           </div>
         </Container>

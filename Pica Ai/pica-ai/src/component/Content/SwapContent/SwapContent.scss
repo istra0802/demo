@@ -1,13 +1,29 @@
 .cover {
   position: relative;
 
+  display: flex;
+  justify-content: space-between;
+
+
+@media (max-width: 1440px) {
+  display: flex;
+  flex-direction: column;
+  }
+
   .face-swap {
     background-color: white;
-    padding-right: 460px;
+    // padding-right: 460px;
     text-align: center;
     color: black;
   }
+  @media (max-width: 720px) {
+    width: 100%; /* Set width to 100% on smaller screens */
+    margin-top: 20px; /* Add some space between the containers */
+  }
 
+  @media (max-width: 720px) {
+    height: auto;
+  }
   .face-swap-header {
     position: relative;
     left: 0px;
@@ -54,7 +70,9 @@
         margin-top: 25px;
         margin-bottom: 15px;
       }
-
+      @media (max-width: 1440px) {
+        width: max-content;
+      }
       display: flex;
       color: black;
       -webkit-box-pack: center;
@@ -74,6 +92,9 @@
         padding: 0;
         margin: 0;
 
+        @media (max-width: 720px) {
+          padding-right: 0px;
+        }
         .nav-item {
           margin-right: 20px;
 
@@ -142,6 +163,7 @@
         -webkit-box-align: center;
         align-items: center;
         border-radius: 20px;
+        padding: 35px;
 
         @media (max-width: 1440px) {
           width: 250px;
@@ -158,8 +180,6 @@
             height: 90px;
             object-fit: cover;
             border-radius: 12px;
-            background: url(https://static.pica-ai.com/_next/static/media/icon-upload.368442cb.png)
-              center center / cover no-repeat;
             cursor: pointer;
           }
 
@@ -193,13 +213,21 @@
             width: 100%;
             height: 100%;
             cursor: pointer;
-            background: url(https://img.mobiuspace.com/image/aigc/04ccdae….webp)
-              0% 0% / cover no-repeat;
+          }
+          .img {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
           }
         }
       }
 
-      .swap-img-original {
+      .swap-img-display {
+        display: flex;
+        flex-direction: column;
         overflow: hidden;
         position: relative;
         width: 300px;
@@ -211,12 +239,19 @@
           height: 250px;
         }
 
+        .img {
+          position: relative;
+          width: 90px;
+          height: 90px;
+          object-fit: cover;
+          border-radius: 12px;
+          cursor: pointer;
+        }
+
         .swap-img-container {
           width: 100%;
           height: 100%;
           cursor: pointer;
-          background: url(https://img.mobiuspace.com/image/aigc/04ccdae….webp)
-            0% 0% / cover no-repeat;
         }
       }
     }
@@ -237,41 +272,30 @@
       color: rgb(255, 255, 255);
       background: rgb(216, 216, 216);
       cursor: pointer;
+      margin-bottom: 30px;
 
       .span {
         z-index: 2;
         color: rgb(168, 168, 168);
       }
-
-      ::before {
-        content: "";
-        display: block;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        width: 0%;
-        height: 100%;
-        background: linear-gradient(
-          106.28deg,
-          rgb(133, 96, 250) 0%,
-          rgb(68, 211, 239) 90.81%
-        );
-        animation: auto ease 0s 1 normal backwards running none;
-      }
     }
   }
 
   .swap-options {
-    position: absolute;
+    // position: absolute;
     top: 0px;
-    right: 40px;
+    right: 10px;
     z-index: 10;
-    width: 460px;
-    height: calc(-157px + 100vh);
+    height: 670px;
     padding: 30px;
     background: rgb(247, 250, 252);
     border-left: 1px solid rgba(0, 0, 0, 0.1);
     overflow-y: auto;
+
+    @media (max-width: 720px) {
+      height: auto !important;
+    }
+
 
     .swap-options-title {
       font-family: "Helvetica Neue";
@@ -283,16 +307,15 @@
 
     .swap-selections {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding-bottom: 20px;
 
       .swap-border {
+        margin-top: 10px;
+        margin-right: 10px;
         position: relative;
-        width: 120px;
-        height: 120px;
-        background: url(https://static.pica-ai.com/_next/static/media/icon-upload.368442cb.png)
-          center center / cover no-repeat;
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 12px;
         cursor: pointer;
 
         .swap-options-input-img {
@@ -305,6 +328,7 @@
           z-index: 2;
           opacity: 0;
         }
+
         .input {
           font-family: inherit;
           font-size: 100%;
@@ -313,44 +337,41 @@
           color: inherit;
           margin: 0;
           padding: 0;
+          opacity: 0;
         }
 
-        .first-img {
-          width: 120px;
-          height: 120px;
-          flex-shrink: 0;
-          cursor: pointer;
-          position: relative;
-          border-radius: 8px;
-          background: url(https://img.mobiuspace.com/image/aigc/04ccdae….webp)
-            0% 0% / cover no-repeat;
-        }
         .active {
           border: 3px solid rgb(186, 132, 255);
         }
-
-        .second-img {
-          width: 120px;
-          height: 120px;
-          flex-shrink: 0;
-          cursor: pointer;
-          position: relative;
-          border-radius: 8px;
-          background: url(https://img.mobiuspace.com/image/aigc/31bd086….webp)
-            0% 0% / cover no-repeat;
-        }
       }
     }
 
-    @media (max-width: 1440px) {
-      height: calc(-120px + 100vh);
-    }
-
-    .options {
-      height: 100% !important;
-      @media (max-width: 1440px) {
-        height: 100% !important;
+    .additional-image-container {
+      display: flex; /* Use flexbox to ensure images are displayed in a horizontal row */
+      flex-wrap: wrap;
+      grid-template-columns: repeat(3, 1fr);
+      /* Allow images to wrap to the next line when necessary */
+      @media (max-width: 600px) {
+        width: 100%;
+        flex-direction: column; /* Change to column layout on smaller screens */
+        align-items: center; /* Center items */
       }
     }
+
+    // .options {
+    //   height: 100% !important;
+    //   @media (max-width: 1440px) {
+    //     height: 100% !important;
+    //   }
+    // }
+  }
+}
+
+@keyframes fillColor {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }

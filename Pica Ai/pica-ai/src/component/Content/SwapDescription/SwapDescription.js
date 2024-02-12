@@ -1,9 +1,9 @@
 import React from 'react'
-import describe1 from '../../images/describe1.png';
+import describe1 from '../../../images/describe1.png';
 import './SwapDescription.scss';
 export default function SwapDescription() {
     return (
-        <div className='wrapper-describe'>
+        <div className='wrapper-describe' style={{paddingRight:"40px", paddingLeft:"40px"}}>
             <div className='describe-innertab'>
                 <div className='describe-left'>
                     <h2 className='describe-title' style={{textAlign:"left"}}>Ultra-Fast, Flawless Face Swaps</h2>
