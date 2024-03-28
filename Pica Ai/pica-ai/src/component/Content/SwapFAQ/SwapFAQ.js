@@ -31,7 +31,7 @@ export default function SwapFAQ() {
                                 </button>
                             </h2>
                             <div id="collapseTwo" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                <div className="accordion-body">
+                                <div >
                                     Yes, Pica AI has an iOS app available for Apple users. The app provides higher image quality, faster generation speeds, and access to more face swapping styles compared to the web version.
                                 </div>
                             </div>

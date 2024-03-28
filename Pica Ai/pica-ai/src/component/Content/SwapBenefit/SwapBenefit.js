@@ -1,9 +1,10 @@
 import React from "react";
-import benefit from "../../images/benefit.png";
-import "./SwapDescription.scss";
+import benefit from "../../../images/benefit.png";
+import "./SwapBenefit.scss";
 export default function SwapBenefit() {
   return (
-    <div className="wrapper-describe">
+    
+    <div className="wrapper-describe" style={{paddingRight:"40px", paddingLeft:"40px"}}>
       <div className="describe-innertab">
         <div className="describe-right">
           <img
